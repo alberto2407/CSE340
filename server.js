@@ -31,7 +31,7 @@ app.use(express.static("public")) // Serve static files from the public director
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
-
+// Error Route
 app.use("/", errorRoute)
 // Management to avoid Chrome DevTools error
 app.get("/.well-known/appspecific/com.chrome.devtools.json", (req, res) => {
