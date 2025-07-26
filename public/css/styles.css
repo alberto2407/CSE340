@@ -224,7 +224,6 @@ ul#inv-display {
   gap: 1rem;
   padding: 0;
   margin: 0;
-  width: 100%;
 }
 
 ul#inv-display > li {
@@ -233,40 +232,26 @@ ul#inv-display > li {
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
 }
 
 ul#inv-display > li a {
   grid-column: 1/2;
   grid-row: 1/2;
-  display: flex;
-  display: block;
   width: 100%;
 }
 
 ul#inv-display > li img {
   display: block;
   width: 100%;
-  max-height: 150px;
   object-fit: cover;
   border-radius: 0.5rem 0.5rem 0 0;
-  border-bottom: #333 1px solid;
+  border-bottom: #333 2px solid;
   padding-bottom: 0.5rem;
 }
 
 .vehicle-card-text {
-display: flex;
-flex-direction: column;
-align-items: center; 
-justify-content: center; 
 text-align: center;
 padding: 0.5rem;
-width: 100%;
-height: 100%;
 }
 
 .vehicle-card-text h2 {
