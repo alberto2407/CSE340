@@ -1,0 +1,36 @@
+<h1>Add Vehicle</h1>
+
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li class="messages"><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<form action="/inv/add-inventory" method="post" class="inventory-form" novalidate> 
+  <fieldset>
+    <label for="classification_id">Classification:</label>
+    <select id="classification_id" name="classification_id" required>
+      <option value="">Choose a classification</option>
+      <% if (classificationList && classificationList.length > 0) { %>
+        <% classificationList.forEach(classification => { %>
+          <option value="<%= classification.classification_id %>">
+            <%= classification.classification_name %>
+          </option>
+        <% }) %>
+      <% } %>
+    </select>
+    <label for="inv_make">Make: <input type="text" id="inv_make" name="inv_make" placeholder="Make of the vehicle" value="<%= typeof inv_make != 'undefined' ? inv_make : '' %>" required></label>
+    <label for="inv_model">Model: <input type="text" id="inv_model" name="inv_model" placeholder="Model of the vehicle" value="<%= typeof inv_model != 'undefined' ? inv_model : '' %>" required></label>
+    <label for="inv_year">Year: <input type="number" id="inv_year" name="inv_year" placeholder="Year of the vehicle" value="<%= typeof inv_year != 'undefined' ? inv_year : '' %>" required></label>
+    <label for="inv_description">Description: <textarea id="inv_description" name="inv_description" placeholder="Description of the vehicle" value="<%= typeof inv_description != 'undefined' ? inv_description : '' %>" required></textarea></label>
+    <label for="inv_image">Image Path: <input type="text" id="inv_image" name="inv_image" placeholder="Path to the image of the vehicle" value="<%= typeof inv_image != 'undefined' ? inv_image : '' %>" required></label>
+    <label for="inv_thumbnail">Thumbnail Path: <input type="text" id="inv_thumbnail" name="inv_thumbnail" placeholder="Path to the thumbnail of the vehicle" value="<%= typeof inv_thumbnail != 'undefined' ? inv_thumbnail : '' %>" required></label>
+    <label for="inv_price">Price: <input type="number" id="inv_price" name="inv_price" step="0.01" placeholder="Price of the vehicle" value="<%= typeof inv_price != 'undefined' ? inv_price : '' %>" required></label>
+    <label for="inv_miles">Miles: <input type="number" id="inv_miles" name="inv_miles" placeholder="Number of miles on the vehicle" value="<%= typeof inv_miles != 'undefined' ? inv_miles : '' %>" required></label>
+    <label for="inv_color">Color: <input type="text" id="inv_color" name="inv_color" placeholder="Color of the vehicle" value="<%= typeof inv_color != 'undefined' ? inv_color : '' %>" required></label>
+    <input type="submit" value="Add Vehicle">
+  </fieldset>
+</form>
